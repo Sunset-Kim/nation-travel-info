@@ -5,22 +5,30 @@ import Nations from './pages/Nations/Nations';
 
 function App() {
   return (
-    <CONTAINER>
-      <Grid sx={{ height: '100%' }} container spacing={2}>
-        <Grid item xs={2} md={3} lg={2}>
-          <SideBar />
-        </Grid>
-        <Grid item xs={8} md={9} lg={10}>
-          <Nations />
-        </Grid>
-      </Grid>
+    <CONTAINER elevation={0}>
+      <SIDERBAR>
+        <SideBar />
+      </SIDERBAR>
+      <CONTENTS>
+        <Nations />
+      </CONTENTS>
     </CONTAINER>
   );
 }
 
-const CONTAINER = styled(Box)`
+const CONTAINER = styled(Paper)`
+  display: flex;
   flex-grow: 1;
   height: 100%;
+`;
+
+const CONTENTS = styled(Box)`
+  width: calc(100% - 220px);
+  padding: 10px;
+`;
+
+const SIDERBAR = styled(Box)`
+  width: 220px;
 `;
 
 export default App;

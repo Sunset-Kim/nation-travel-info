@@ -6,14 +6,11 @@ import {
   ListItemButton,
   ListItemIcon,
   ListItemText,
-  MenuItem,
-  MenuList,
   Paper,
   styled,
-  Typography,
 } from '@mui/material';
 
-const data = [{ icon: <FlightIcon />, label: '국가별 여행 경보상황' }];
+const MENULIST = [{ icon: <FlightIcon />, label: '국가별 여행 경보상황' }];
 
 const FireNav = styled(List)<{ component?: React.ElementType }>({
   '& .MuiListItemButton-root': {
@@ -31,7 +28,13 @@ const FireNav = styled(List)<{ component?: React.ElementType }>({
 
 const SideBar = () => {
   return (
-    <Paper elevation={3} sx={{ height: '100%' }}>
+    <Paper
+      elevation={3}
+      sx={{
+        height: '100%',
+        borderRadius: '0 10px 10px 0',
+      }}
+    >
       <FireNav component="nav" disablePadding>
         <ListItemButton component="a" href="#customized-list">
           <ListItemIcon sx={{ fontSize: 20 }}>🔥</ListItemIcon>
@@ -48,12 +51,12 @@ const SideBar = () => {
 
         <Divider />
 
-        <ListItemButton>
-          <ListItemIcon>
-            <FlightIcon />
-          </ListItemIcon>
-          <ListItemText>국가별 여행 경보코드</ListItemText>
-        </ListItemButton>
+        {MENULIST.map((menu) => (
+          <ListItemButton key={menu.label}>
+            <ListItemIcon>{menu.icon}</ListItemIcon>
+            <ListItemText>{menu.label}</ListItemText>
+          </ListItemButton>
+        ))}
       </FireNav>
     </Paper>
   );
