@@ -24,11 +24,13 @@ const CONTAINER = styled(Paper)`
 
 const CONTENTS = styled(Box)`
   width: calc(100% - 220px);
-  padding: 10px;
+  min-width: 925px;
+  padding: 40px;
 `;
 
 const SIDERBAR = styled(Box)`
   width: 220px;
+  min-width: 220px;
 `;
 
 export default App;
